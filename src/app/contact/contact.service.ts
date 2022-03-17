@@ -9,7 +9,7 @@ export class ContactService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getAllContacts() {
-    return this.httpClient.get(`${environment.backend}/contacts/list`);
+  getAllContacts(offset: Number, pageSize: Number) {
+    return this.httpClient.get(`${environment.backend}/contacts/list?offset=${offset}&pageSize=${pageSize}`);
   }
 }

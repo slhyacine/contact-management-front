@@ -21,16 +21,12 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
   imports: [
     CommonModule,
     ContactRoutingModule,
-    MatToolbarModule,
-    MatIconModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatTableModule,
-    MatPaginatorModule
   ]
 })
 export class ContactModule { }

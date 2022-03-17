@@ -1,15 +1,12 @@
-.example-spacer {
-  flex: 1 1 auto;
-}
-
 .example-container {
-  position: relative;
+  padding: 8em;
+  background-color: ghostwhite;
 }
 
 .example-table-container {
   position: relative;
   min-height: 200px;
-  max-height: 400px;
+  max-height: fit-content;
   overflow: auto;
 }
 
@@ -43,4 +40,9 @@ table {
 
 .mat-column-created {
   max-width: 124px;
+}
+
+.title-bar {
+  padding: 28px 28px;
+  background-color: #3f51b5;
 }

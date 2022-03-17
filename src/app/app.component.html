@@ -1,1 +1,17 @@
+<mat-toolbar class="toolbar mat-elevation-z6" color="primary">
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <mat-button-toggle-group name="menuSelected" appearance="legacy">
+    <mat-button-toggle class="toggle-button" value="contacts" [routerLink]="['/contacts/list']">
+      Contacts
+    </mat-button-toggle>
+    <mat-button-toggle class="toggle-button" value="enterprises" [routerLink]="['/enterprises/list']">
+      Enterprises
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <span class="spacer"></span>
+  <button mat-icon-button>
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-toolbar>
 <router-outlet></router-outlet>

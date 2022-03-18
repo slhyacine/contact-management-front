@@ -27,6 +27,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
+    MatIconModule
   ]
 })
 export class ContactModule { }

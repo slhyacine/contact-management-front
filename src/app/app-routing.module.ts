@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
   },
   {
+    path: 'enterprises',
+    loadChildren: () => import('./enterprise/enterprise.module').then(m => m.EnterpriseModule)
+  },
+  {
     path: '**',
     redirectTo: 'contacts'
   }

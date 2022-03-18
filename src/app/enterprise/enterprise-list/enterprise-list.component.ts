@@ -1,18 +1,17 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {ContactService} from "../contact.service";
+import {catchError, map, startWith, switchMap} from "rxjs/operators";
+import {of} from "rxjs";
+import {EnterpriseService} from "../enterprise.service";
 import {MatPaginator} from "@angular/material/paginator";
-import {catchError, map, startWith, switchMap, tap} from "rxjs/operators";
-import {Observable, observable, of} from "rxjs";
-import {HttpClient} from "@angular/common/http";
 
 @Component({
-  selector: 'app-contact-list',
-  templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.scss']
+  selector: 'app-enterprise-list',
+  templateUrl: './enterprise-list.component.html',
+  styleUrls: ['./enterprise-list.component.scss']
 })
-export class ContactListComponent implements OnInit, AfterViewInit {
+export class EnterpriseListComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['id', 'name', 'lastName', 'address', 'tva'];
+  displayedColumns: string[] = ['id', 'name', 'address', 'tva'];
   data: any[] = [];
 
   resultsLength = 0;
@@ -22,9 +21,10 @@ export class ContactListComponent implements OnInit, AfterViewInit {
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private enterpriseService: EnterpriseService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   ngAfterViewInit() {
     this.paginator.page.pipe(
@@ -32,8 +32,8 @@ export class ContactListComponent implements OnInit, AfterViewInit {
       switchMap(
         () => {
           this.isLoadingResults = true;
-          return this.contactService
-            .getAllContacts(this.paginator.pageIndex, this.pageSize)
+          return this.enterpriseService
+            .getAllEnterprises(this.paginator.pageIndex, this.pageSize)
             .pipe(catchError(() => of(null)))
         }
       ),

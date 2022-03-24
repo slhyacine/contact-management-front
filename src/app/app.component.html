@@ -1,23 +1,26 @@
-<mat-toolbar class="toolbar mat-elevation-z6" color="primary">
+<mat-toolbar *ngIf="router.url != '/auth/login'" class="toolbar mat-elevation-z6" color="primary">
   <span>My App</span>
   <span class="example-spacer"></span>
-  <mat-button-toggle-group name="menuSelected" appearance="legacy" #group="matButtonToggleGroup">
-    <mat-button-toggle checked class="toggle-button" value="contacts" [routerLink]="['/contacts/list']">
+  <mat-button-toggle-group name="menuSelected" appearance="legacy" [(ngModel)]="selected">
+    <mat-button-toggle checked *hasAnyRoles="['ADMIN', 'USER']" class="toggle-button" value="contacts" [routerLink]="['/contacts/list']">
       Contacts
     </mat-button-toggle>
-    <mat-button-toggle class="toggle-button" value="enterprises" [routerLink]="['/enterprises/list']">
+    <mat-button-toggle *hasAnyRoles="['ADMIN']" class="toggle-button" value="enterprises" [routerLink]="['/enterprises/list']">
       Enterprises
     </mat-button-toggle>
   </mat-button-toggle-group>
   <span class="spacer"></span>
+  <button mat-button (click)="loginService.logout()">
+    LOGOUT
+  </button>
   <button mat-icon-button>
     <mat-icon>person</mat-icon>
   </button>
 </mat-toolbar>
 
-<div class="title-bar">
+<div class="title-bar" *ngIf="router.url != '/auth/login'">
   <span>Contacts list</span>
-  <button mat-mini-fab color="accent" (click)="addEntity(group.value)">
+  <button mat-mini-fab color="accent" (click)="addEntity()">
     <mat-icon>add</mat-icon>
   </button>
 </div>

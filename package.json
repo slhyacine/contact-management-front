@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --configuration production && npm install -g lite-server && lite-server --baseDir=\"dist/frontend\"",
-    "start": "ng serve",
+    "heroku-postbuild": "ng build --configuration production && npm install -g http-server-spa",
+    "start": "http-server-spa dist/frontend index.html $PORT",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

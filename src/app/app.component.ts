@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {AddContactComponent} from "./contact/add-contact/add-contact.component";
+import {Router} from "@angular/router";
+import {LoginService} from "./authentication/login/login.service";
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,16 @@ import {AddContactComponent} from "./contact/add-contact/add-contact.component";
 })
 export class AppComponent {
 
-  constructor(public dialog: MatDialog) {
-  }
+  selected: string = 'contacts';
 
-  addEntity(value: String) {
+  constructor(
+    public dialog: MatDialog,
+    public router: Router,
+    public loginService: LoginService
+  ) {}
 
-    if (value === 'contacts') {
+  addEntity() {
+    if (this.selected === 'contacts') {
       const dialogRef = this.dialog.open(AddContactComponent, {
         width: '600px',
         height: 'fit-content'
@@ -23,7 +29,7 @@ export class AppComponent {
       dialogRef.afterClosed().subscribe(res => console.log(res));
     }
 
-    if (value === 'enterprises') {
+    if (this.selected === 'enterprises') {
 
     }
   }

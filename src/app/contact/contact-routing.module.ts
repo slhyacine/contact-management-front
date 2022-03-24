@@ -6,6 +6,11 @@ const routes: Routes = [
   {
     path: 'list',
     component: ContactListComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'list',
+    pathMatch: 'full'
   }
 ];
 

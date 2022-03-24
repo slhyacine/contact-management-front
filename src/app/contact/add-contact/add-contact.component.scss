@@ -1,0 +1,13 @@
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  .form {
+    display: flex;
+    flex-direction: column;
+    .line {
+      display: flex;
+      justify-content: space-between;
+    }
+    .cdk-global-overlay-wrapper, .cdk-overlay-container { z-index: 9999!important; }
+  }
+}

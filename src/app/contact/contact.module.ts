@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { ContactRoutingModule } from './contact-routing.module';
 import {ContactListComponent} from "./contact-list/contact-list.component";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
@@ -12,11 +10,17 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { AddContactComponent } from './add-contact/add-contact.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
-    ContactListComponent
+    ContactListComponent,
+    AddContactComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +31,11 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ]
 })
 export class ContactModule { }

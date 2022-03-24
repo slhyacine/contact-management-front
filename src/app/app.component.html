@@ -1,8 +1,8 @@
 <mat-toolbar class="toolbar mat-elevation-z6" color="primary">
   <span>My App</span>
   <span class="example-spacer"></span>
-  <mat-button-toggle-group name="menuSelected" appearance="legacy">
-    <mat-button-toggle class="toggle-button" value="contacts" [routerLink]="['/contacts/list']">
+  <mat-button-toggle-group name="menuSelected" appearance="legacy" #group="matButtonToggleGroup">
+    <mat-button-toggle checked class="toggle-button" value="contacts" [routerLink]="['/contacts/list']">
       Contacts
     </mat-button-toggle>
     <mat-button-toggle class="toggle-button" value="enterprises" [routerLink]="['/enterprises/list']">
@@ -14,4 +14,13 @@
     <mat-icon>person</mat-icon>
   </button>
 </mat-toolbar>
+
+<div class="title-bar">
+  <span>Contacts list</span>
+  <button mat-mini-fab color="accent" (click)="addEntity(group.value)">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+
 <router-outlet></router-outlet>

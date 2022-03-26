@@ -22,7 +22,7 @@ export class EditContactComponent implements OnInit {
     tva: new FormControl('')
   });
   constructor(private route: ActivatedRoute, private contactService: ContactService, private snack: MatSnackBar) {
-    this.contactId = route.snapshot.paramMap.get('id') || 'null';
+    this.contactId = route.snapshot.paramMap.get('id') || '';
     this.contactService.getContact(this.contactId).subscribe(
       (res) => {
         this.contactFrom.setValue(new ContactFreelanceCreateDto(res));
@@ -31,7 +31,7 @@ export class EditContactComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addContact() {
+  updateContact() {
     if (this.contactFrom.value.type === 'EMPLOYEE') {
       this.contactService.updateContactEmployee(this.contactId, new ContactEmployeeCreateDto(this.contactFrom.value))
         .subscribe(res => {

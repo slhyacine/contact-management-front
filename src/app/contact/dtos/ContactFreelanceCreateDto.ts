@@ -5,7 +5,7 @@ export class ContactFreelanceCreateDto {
   address: string;
   tva: number;
 
-  constructor(obj: any) {
+  constructor(obj: ContactFreelanceCreateDto) {
     this.type = obj.type;
     this.name = obj.name;
     this.lastname = obj.lastname;

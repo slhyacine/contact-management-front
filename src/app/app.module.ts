@@ -14,10 +14,15 @@ import {MatSelectModule} from "@angular/material/select";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {JwtInterceptor} from "./interceptors/jwt-interceptor";
 import {CustomDirectivesModule} from "./directives/directives.module";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { Error404Component } from './error404/error404.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,8 @@ import {CustomDirectivesModule} from "./directives/directives.module";
     MatSelectModule,
     ReactiveFormsModule,
     CustomDirectivesModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

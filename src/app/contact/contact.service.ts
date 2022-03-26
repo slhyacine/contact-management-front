@@ -26,4 +26,9 @@ export class ContactService {
     return this.httpClient
       .post(`${this.contactUrl}/newFreelance`, contactFreelanceCreateDto);
   }
+
+  deleteContact(contactId: string) {
+    return this.httpClient
+      .delete(`${this.contactUrl}/${contactId}`)
+  }
 }

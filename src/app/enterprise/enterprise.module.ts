@@ -16,12 +16,18 @@ import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {CustomDirectivesModule} from "../directives/directives.module";
+import { EditEnterpriseComponent } from './edit-enterprise/edit-enterprise.component';
+import {MatRippleModule} from "@angular/material/core";
+import { ViewEnterpriseComponent } from './view-enterprise/view-enterprise.component';
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
   declarations: [
     EnterpriseListComponent,
-    AddEnterpriseComponent
+    AddEnterpriseComponent,
+    EditEnterpriseComponent,
+    ViewEnterpriseComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +44,9 @@ import {CustomDirectivesModule} from "../directives/directives.module";
     ReactiveFormsModule,
     MatSnackBarModule,
     CustomDirectivesModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRippleModule,
+    MatListModule
   ]
 })
 export class EnterpriseModule { }

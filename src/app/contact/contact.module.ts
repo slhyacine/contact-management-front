@@ -17,29 +17,37 @@ import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {CustomDirectivesModule} from "../directives/directives.module";
+import { EditContactComponent } from './edit-contact/edit-contact.component';
+import {MatRippleModule} from "@angular/material/core";
+import { ViewContactComponent } from './view-contact/view-contact.component';
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
   declarations: [
     ContactListComponent,
-    AddContactComponent
+    AddContactComponent,
+    EditContactComponent,
+    ViewContactComponent
   ],
-    imports: [
-        CommonModule,
-        ContactRoutingModule,
-        MatButtonModule,
-        MatButtonToggleModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatProgressSpinnerModule,
-        MatIconModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        ReactiveFormsModule,
-        MatSnackBarModule,
-        CustomDirectivesModule
-    ]
+  imports: [
+    CommonModule,
+    ContactRoutingModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    CustomDirectivesModule,
+    MatRippleModule,
+    MatListModule
+  ]
 })
 export class ContactModule { }

@@ -1,5 +1,5 @@
 <div class="form-container mat-elevation-z4">
-  <h1>Enter new enterprise details</h1>
+  <h1>Edit enterprise details</h1>
 
   <form class="form" [formGroup]="enterpriseFrom">
 
@@ -21,7 +21,7 @@
       <mat-icon matSuffix>app_registration</mat-icon>
     </mat-form-field>
 
-    <button mat-raised-button [disabled]="!enterpriseFrom.valid" color="primary" type="button" (click)="addEnterprise()">
+    <button mat-raised-button [disabled]="!enterpriseFrom.valid" color="primary" type="button" (click)="updateEnterprise()">
       Save
     </button>
 

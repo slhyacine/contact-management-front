@@ -1,0 +1,45 @@
+<div class="form-container mat-elevation-z4">
+  <h1>Edit contact details</h1>
+
+  <form class="form" [formGroup]="contactFrom">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contact type</mat-label>
+      <mat-select #type_contact formControlName="type">
+        <mat-option value="EMPLOYEE">Employee</mat-option>
+        <mat-option value="FREELANCE">Freelance</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="line">
+      <mat-form-field appearance="outline" class="inline-element">
+        <mat-label>Firstname</mat-label>
+        <input matInput placeholder="Enter your name" formControlName="name">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="inline-element">
+        <mat-label>Lastname</mat-label>
+        <input matInput placeholder="Enter your lastname"  formControlName="lastname">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="Enter your address" formControlName="address">
+      <mat-icon matSuffix>place</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="type_contact.value === 'FREELANCE'">
+      <mat-label>TVA</mat-label>
+      <input matInput placeholder="Enter your tva number" formControlName="tva">
+      <mat-icon matSuffix>app_registration</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="!contactFrom.valid" color="primary" type="button" (click)="updateContact()">
+      Save
+    </button>
+
+  </form>
+</div>

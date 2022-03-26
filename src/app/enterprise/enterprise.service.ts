@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {EnterpriseCreateDto} from './dtos/EnterpriseCreateDto';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,15 @@ export class EnterpriseService {
   deleteEnterprise(enterpriseId: string) {
     return this.httpClient
       .delete(`${this.contactUrl}/${enterpriseId}`)
+  }
+
+  updateEnterprise(enterpriseId: string, enterpriseDto: EnterpriseCreateDto) {
+    return this.httpClient
+      .put(`${this.contactUrl}/${enterpriseId}`, enterpriseDto);
+  }
+
+  getEnterprise(enterpriseId: string): Observable<EnterpriseCreateDto> {
+    return this.httpClient
+      .get<EnterpriseCreateDto>(`${this.contactUrl}/${enterpriseId}`);
   }
 }

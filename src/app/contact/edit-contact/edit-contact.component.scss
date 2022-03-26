@@ -1,0 +1,23 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  width: 50%;
+  margin: auto;
+  border-radius: 8px;
+  .form {
+    display: flex;
+    flex-direction: column;
+    .line {
+      display: flex;
+      justify-content: space-between;
+      .inline-element {
+        flex: 1;
+      }
+    }
+    button {
+      width: 10em;
+      margin: auto;
+    }
+  }
+}

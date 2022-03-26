@@ -56,8 +56,4 @@ export class EnterpriseListComponent implements OnInit, AfterViewInit {
 
   }
 
-  edit(id: string) {
-
-  }
-
 }

@@ -16,12 +16,14 @@ import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {CustomDirectivesModule} from "../directives/directives.module";
+import { EditEnterpriseComponent } from './edit-enterprise/edit-enterprise.component';
 
 
 @NgModule({
   declarations: [
     EnterpriseListComponent,
-    AddEnterpriseComponent
+    AddEnterpriseComponent,
+    EditEnterpriseComponent
   ],
   imports: [
     CommonModule,

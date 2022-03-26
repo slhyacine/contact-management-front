@@ -17,12 +17,14 @@ import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {CustomDirectivesModule} from "../directives/directives.module";
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 
 @NgModule({
   declarations: [
     ContactListComponent,
-    AddContactComponent
+    AddContactComponent,
+    EditContactComponent
   ],
     imports: [
         CommonModule,

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ContactListComponent} from "./contact-list/contact-list.component";
 import {AddContactComponent} from "./add-contact/add-contact.component";
+import {EditContactComponent} from "./edit-contact/edit-contact.component";
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'new',
     component: AddContactComponent
+  },
+  {
+    path: ':id/edit',
+    component: EditContactComponent
   }
 ];
 

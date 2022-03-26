@@ -11,7 +11,7 @@ import {MatPaginator} from "@angular/material/paginator";
 })
 export class EnterpriseListComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['id', 'name', 'address', 'tva'];
+  displayedColumns: string[] = ['id', 'name', 'address', 'tva', 'actions'];
   data: any[] = [];
 
   resultsLength = 0;
@@ -47,6 +47,17 @@ export class EnterpriseListComponent implements OnInit, AfterViewInit {
         return data.content;
       })
     ).subscribe((data) => { this.data = data; });
+  }
+
+  delete(id: string) {
+    this.enterpriseService.deleteEnterprise(id).subscribe(res => {
+      this.paginator._changePageSize(this.paginator.pageSize);
+    });
+
+  }
+
+  edit(id: string) {
+
   }
 
 }

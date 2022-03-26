@@ -15,6 +15,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {CustomDirectivesModule} from "../directives/directives.module";
 
 
 @NgModule({
@@ -35,6 +36,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
+    CustomDirectivesModule,
     MatSnackBarModule
   ]
 })

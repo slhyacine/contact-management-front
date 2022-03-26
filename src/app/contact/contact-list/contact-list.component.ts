@@ -2,8 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ContactService} from "../contact.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {catchError, map, startWith, switchMap, tap} from "rxjs/operators";
-import {Observable, observable, of} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {of} from "rxjs";
 
 @Component({
   selector: 'app-contact-list',
@@ -12,7 +11,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ContactListComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['id', 'name', 'lastName', 'address', 'tva'];
+  displayedColumns: string[] = ['id', 'name', 'lastName', 'address', 'tva', 'actions'];
   data: any[] = [];
 
   resultsLength = 0;
@@ -47,6 +46,17 @@ export class ContactListComponent implements OnInit, AfterViewInit {
         return data.content;
       })
     ).subscribe((data) => { this.data = data; });
+  }
+
+  delete(id: string) {
+    this.contactService.deleteContact(id).subscribe(res => {
+      this.paginator._changePageSize(this.paginator.pageSize);
+    });
+
+  }
+
+  edit(id: string) {
+
   }
 
 }

@@ -12,7 +12,7 @@
       </mat-menu>
       <mat-menu #enterprise="matMenu">
         <button mat-menu-item *hasAnyRoles="['ADMIN', 'USER']" [routerLink]="['/enterprises/list']">List of enterprises</button>
-        <button mat-menu-item [routerLink]="['/enterprises/new']">Add new Enterprise</button>
+        <button mat-menu-item *hasAnyRoles="['ADMIN']" [routerLink]="['/enterprises/new']">Add new Enterprise</button>
       </mat-menu>
   <span class="example-spacer"></span>
   <button mat-button (click)="loginService.logout()">

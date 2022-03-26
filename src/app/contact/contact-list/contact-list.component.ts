@@ -55,8 +55,4 @@ export class ContactListComponent implements OnInit, AfterViewInit {
 
   }
 
-  edit(id: string) {
-
-  }
-
 }

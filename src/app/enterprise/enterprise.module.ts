@@ -10,11 +10,17 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatIconModule} from "@angular/material/icon";
+import { AddEnterpriseComponent } from './add-enterprise/add-enterprise.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
   declarations: [
-    EnterpriseListComponent
+    EnterpriseListComponent,
+    AddEnterpriseComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +31,11 @@ import {MatIconModule} from "@angular/material/icon";
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ]
 })
 export class EnterpriseModule { }

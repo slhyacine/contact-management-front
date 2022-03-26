@@ -1,0 +1,29 @@
+<div class="form-container mat-elevation-z4">
+  <h1>Enter new contact details</h1>
+
+  <form class="form" [formGroup]="enterpriseFrom">
+
+    <mat-form-field appearance="outline" class="inline-element">
+      <mat-label>Firstname</mat-label>
+      <input matInput placeholder="Enter your name" formControlName="name">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="Enter your address" formControlName="address">
+      <mat-icon matSuffix>place</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>TVA</mat-label>
+      <input matInput placeholder="Enter your tva number" formControlName="tva">
+      <mat-icon matSuffix>app_registration</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="!enterpriseFrom.valid" color="primary" type="button" (click)="addEnterprise()">
+      Save
+    </button>
+
+  </form>
+</div>

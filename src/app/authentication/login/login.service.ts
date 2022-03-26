@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {AuthenticationService} from '../authentication.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Login } from 'src/app/models/authentification';
+import { Login } from 'src/app/authentication/models/authentification';
 
 @Injectable({
     providedIn: 'root'

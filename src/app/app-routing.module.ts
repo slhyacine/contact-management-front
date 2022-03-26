@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AuthenticationGuard} from "./guards/authentication.guard";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {Error404Component} from "./error404/error404.component";
 
 const routes: Routes = [
   {
@@ -8,20 +10,31 @@ const routes: Routes = [
     loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
-    path: 'contacts',
-    loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
-    canActivate: [AuthenticationGuard]
-  },
-  {
-    path: 'enterprises',
-    loadChildren: () => import('./enterprise/enterprise.module').then(m => m.EnterpriseModule),
-    canActivate: [AuthenticationGuard]
+    path: '',
+    component: DashboardComponent,
+    canActivate: [AuthenticationGuard],
+    children: [
+      {
+        path: 'contacts',
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
+        canActivate: [AuthenticationGuard]
+      },
+      {
+        path: 'enterprises',
+        loadChildren: () => import('./enterprise/enterprise.module').then(m => m.EnterpriseModule),
+        canActivate: [AuthenticationGuard]
+      }
+    ]
   },
   {
     path: '**',
-    redirectTo: 'contacts',
-    pathMatch: 'full'
+    component: Error404Component
   }
+  // {
+  //   path: '**',
+  //   redirectTo: 'contacts',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ContactService} from "../contact.service";
 import {ContactEmployeeCreateDto} from "../dtos/ContactEmployeeCreateDto";
 import {ContactFreelanceCreateDto} from "../dtos/ContactFreelanceCreateDto";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-add-contact',
@@ -17,28 +17,27 @@ export class AddContactComponent implements OnInit {
     name: new FormControl('', Validators.required),
     lastname: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required),
-    tva: new FormControl('', Validators.required)
+    tva: new FormControl('')
   });
-  constructor(
-    private contactService: ContactService,
-    public dialogRef: MatDialogRef<AddContactComponent>) { }
+  constructor(private contactService: ContactService, private snack: MatSnackBar) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   addContact() {
     if (this.contactFrom.value.type === 'EMPLOYEE') {
       this.contactService.addContactEmployee(new ContactEmployeeCreateDto(this.contactFrom.value))
         .subscribe(res => {
-          console.log(res);
-          this.dialogRef.close();
+          this.snack.open('New contact added successfully', 'ok',
+            { verticalPosition: "top", horizontalPosition: "center", duration: 1000 })
+          this.contactFrom.reset();
         });
     }
     if (this.contactFrom.value.type === 'FREELANCE') {
       this.contactService.addContactFreelance(new ContactFreelanceCreateDto(this.contactFrom.value))
         .subscribe(res => {
-          console.log(res);
-          this.dialogRef.close();
+          this.snack.open('New contact added successfully', 'ok',
+            { verticalPosition: "top", horizontalPosition: "center", duration: 1000 })
+          this.contactFrom.reset();
         });
     }
   }

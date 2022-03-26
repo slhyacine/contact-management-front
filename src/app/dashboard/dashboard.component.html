@@ -1,0 +1,32 @@
+<mat-toolbar class="toolbar mat-elevation-z6" color="primary">
+  <span>My App</span>
+  <span class="spacer"></span>
+  <button mat-button [matMenuTriggerFor]="components">Menu</button>
+    <mat-menu #components="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="contact">Contact</button>
+      <button mat-menu-item [matMenuTriggerFor]="enterprise">Enterprise</button>
+    </mat-menu>
+      <mat-menu #contact="matMenu">
+        <button mat-menu-item *hasAnyRoles="['ADMIN', 'USER']" [routerLink]="['/contacts/list']">List of contacts</button>
+        <button mat-menu-item *hasAnyRoles="['ADMIN']" [routerLink]="['/contacts/new']">Add new contact</button>
+      </mat-menu>
+      <mat-menu #enterprise="matMenu">
+        <button mat-menu-item *hasAnyRoles="['ADMIN', 'USER']" [routerLink]="['/enterprises/list']">List of enterprises</button>
+        <button mat-menu-item [routerLink]="['/enterprises/new']">Add new Enterprise</button>
+      </mat-menu>
+  <span class="example-spacer"></span>
+  <button mat-button (click)="loginService.logout()">
+    LOGOUT
+  </button>
+  <button mat-icon-button>
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="title-bar">
+  <span>Contacts list</span>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

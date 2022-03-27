@@ -1,16 +1,20 @@
-.toolbar {
-  position: sticky;
-  .example-spacer {
-    flex: 1 1 auto;
+.outer {
+  height: 100%;
+  width: 100%;
+  .toolbar {
+    position: sticky;
+    .example-spacer {
+      flex: 1 1 auto;
+    }
+    .spacer {
+      width: 40px;
+    }
   }
-  .spacer {
-    width: 40px;
-  }
-}
 
-.container {
-  padding-top: 4em;
-  padding-right: 4em;
-  padding-left: 4em;
-  min-height: fit-content;
+  .container {
+    padding-top: 4em;
+    padding-right: 4em;
+    padding-left: 4em;
+    min-height: fit-content;
+  }
 }

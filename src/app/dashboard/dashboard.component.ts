@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {LoginService} from "../authentication/login/login.service";
 
 @Component({
@@ -8,9 +8,14 @@ import {LoginService} from "../authentication/login/login.service";
 })
 export class DashboardComponent implements OnInit {
 
+  checked = false;
   constructor(public loginService: LoginService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
+  // @HostBinding('class')
+  // get theme() {
+  //   return this.checked ? 'dark-theme': 'light-theme';
+  // }
 
 }

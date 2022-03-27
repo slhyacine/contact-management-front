@@ -17,6 +17,8 @@ import {CustomDirectivesModule} from "./directives/directives.module";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Error404Component } from './error404/error404.component';
 import {MatMenuModule} from "@angular/material/menu";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [
@@ -24,22 +26,24 @@ import {MatMenuModule} from "@angular/material/menu";
     DashboardComponent,
     Error404Component
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatButtonToggleModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    CustomDirectivesModule,
-    FormsModule,
-    MatMenuModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatButtonToggleModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        CustomDirectivesModule,
+        FormsModule,
+        MatMenuModule,
+        MatSlideToggleModule,
+        MatSidenavModule
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],

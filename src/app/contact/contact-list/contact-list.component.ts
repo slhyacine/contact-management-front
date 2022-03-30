@@ -11,7 +11,7 @@ import {of} from "rxjs";
 })
 export class ContactListComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['id', 'name', 'lastName', 'address', 'tva', 'actions'];
+  displayedColumns: string[] = ['id', 'type', 'name', 'lastName', 'address', 'tva', 'actions'];
   data: any[] = [];
 
   resultsLength = 0;

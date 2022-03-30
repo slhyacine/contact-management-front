@@ -3,7 +3,7 @@
     <div class="example-loading-shade"
          *ngIf="isLoadingResults">
       <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-      <div class="example-rate-limit-reached" *ngIf="data.length == 0">
+      <div class="example-rate-limit-reached" *ngIf="data.length === 0">
         There is no data to be show.
       </div>
     </div>
@@ -18,12 +18,12 @@
         </ng-container>
 
         <ng-container matColumnDef="name">
-          <mat-header-cell mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+          <mat-header-cell mat-header-cell *matHeaderCellDef i18n>name</mat-header-cell>
           <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="address">
-          <mat-header-cell *matHeaderCellDef>
+          <mat-header-cell *matHeaderCellDef i18n>
             address
           </mat-header-cell>
           <mat-cell *matCellDef="let row">{{row.address}}</mat-cell>

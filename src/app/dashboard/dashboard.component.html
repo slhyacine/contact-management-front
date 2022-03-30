@@ -1,6 +1,6 @@
 <div class="outer" [ngClass]="{ 'mat-app-background': checked, 'dark-theme': checked }">
   <mat-toolbar class="toolbar mat-elevation-z6" color="primary">
-    <span>My App</span>
+    <span i18n>My App</span>
     <span class="spacer"></span>
     <button mat-button [matMenuTriggerFor]="components">Menu</button>
     <mat-menu #components="matMenu">
@@ -8,18 +8,18 @@
       <button mat-menu-item [matMenuTriggerFor]="enterprise">Enterprise</button>
     </mat-menu>
     <mat-menu #contact="matMenu">
-      <button mat-menu-item *hasAnyRoles="['ADMIN', 'USER']" [routerLink]="['/contacts/list']">List of contacts</button>
-      <button mat-menu-item *hasAnyRoles="['ADMIN']" [routerLink]="['/contacts/new']">Add new contact</button>
+      <button mat-menu-item *hasAnyRoles="['ADMIN', 'USER']" [routerLink]="['/contacts/list']" i18n>List of contacts</button>
+      <button mat-menu-item *hasAnyRoles="['ADMIN']" [routerLink]="['/contacts/new']" i18n>Add new contact</button>
     </mat-menu>
     <mat-menu #enterprise="matMenu">
-      <button mat-menu-item *hasAnyRoles="['ADMIN', 'USER']" [routerLink]="['/enterprises/list']">List of enterprises</button>
-      <button mat-menu-item *hasAnyRoles="['ADMIN']" [routerLink]="['/enterprises/new']">Add new Enterprise</button>
+      <button mat-menu-item *hasAnyRoles="['ADMIN', 'USER']" [routerLink]="['/enterprises/list']" i18n>List of enterprises</button>
+      <button mat-menu-item *hasAnyRoles="['ADMIN']" [routerLink]="['/enterprises/new']" i18n>Add new Enterprise</button>
     </mat-menu>
     <span class="example-spacer"></span>
-    <mat-slide-toggle [(ngModel)]="checked">Dark</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="checked" i18n>Dark</mat-slide-toggle>
     <span class="spacer"></span>
-    <button mat-icon-button>
-      <mat-icon>person</mat-icon>
+    <button mat-icon-button (click)="loginService.logout()">
+      <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
 

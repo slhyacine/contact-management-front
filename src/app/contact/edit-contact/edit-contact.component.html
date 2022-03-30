@@ -1,5 +1,5 @@
 <div class="form-container mat-elevation-z4">
-  <h1>Edit contact details</h1>
+  <h1 i18n>Edit contact details</h1>
 
   <form class="form" [formGroup]="contactFrom">
 
@@ -37,7 +37,7 @@
       <mat-icon matSuffix>app_registration</mat-icon>
     </mat-form-field>
 
-    <button mat-raised-button [disabled]="!contactFrom.valid" color="primary" type="button" (click)="updateContact()">
+    <button mat-raised-button [disabled]="!contactFrom.valid" color="primary" type="button" (click)="updateContact()" i18n>
       Save
     </button>
 

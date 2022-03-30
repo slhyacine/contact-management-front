@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title>Login</mat-card-title>
+  <mat-card-title i18n>Login</mat-card-title>
   <mat-card-content>
     <form [formGroup]="form">
       <p>
@@ -14,12 +14,12 @@
         </mat-form-field>
       </p>
 
-      <p *ngIf="loginService.error" class="error">
+      <p *ngIf="loginService.error" class="error" i18n>
         Username or password invalid
       </p>
 
       <div class="button">
-        <button (click)="submit()" color="primary" mat-raised-button type="button" [disabled]="loginService.disabled">
+        <button (click)="submit()" color="primary" mat-raised-button type="button" [disabled]="loginService.disabled" i18n>
           Login
         </button>
       </div>

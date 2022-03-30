@@ -16,19 +16,24 @@
         <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
       </ng-container>
 
+      <ng-container matColumnDef="type">
+        <mat-header-cell mat-header-cell *matHeaderCellDef i18n>Type</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.type}}</mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="name">
-        <mat-header-cell mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+        <mat-header-cell mat-header-cell *matHeaderCellDef i18n>Name</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="lastName">
-        <mat-header-cell mat-header-cell *matHeaderCellDef>lastName</mat-header-cell>
+        <mat-header-cell mat-header-cell *matHeaderCellDef i18n>Lastname</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.lastname}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="address">
-        <mat-header-cell mat-header-cell *matHeaderCellDef>
-          address
+        <mat-header-cell mat-header-cell *matHeaderCellDef i18n>
+          Address
         </mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.address}}</mat-cell>
       </ng-container>

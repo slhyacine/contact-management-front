@@ -1,12 +1,12 @@
 <div class="form-container mat-elevation-z4">
-  <h1>Enterprise details</h1>
+  <h1 i18n>Enterprise details</h1>
 
   <mat-list role="list">
     <mat-list-item><strong>Type :</strong>{{contact.type}}</mat-list-item>
     <mat-list-item><strong>ID :</strong>{{contact.id }}</mat-list-item>
-    <mat-list-item><strong>Name :</strong>{{contact.name}}</mat-list-item>
-    <mat-list-item><strong>Lastname : </strong>{{contact.lastname}}</mat-list-item>
-    <mat-list-item><strong>Address :</strong>{{contact.address}}</mat-list-item>
+    <mat-list-item><strong i18n>Name :</strong>{{contact.name}}</mat-list-item>
+    <mat-list-item><strong i18n>Lastname : </strong>{{contact.lastname}}</mat-list-item>
+    <mat-list-item><strong i18n>Address :</strong>{{contact.address}}</mat-list-item>
     <mat-list-item *ngIf="contact.tva"><strong>tva : </strong>{{contact.tva}}</mat-list-item>
   </mat-list>
 </div>

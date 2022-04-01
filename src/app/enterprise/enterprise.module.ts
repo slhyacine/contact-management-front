@@ -20,6 +20,8 @@ import { EditEnterpriseComponent } from './edit-enterprise/edit-enterprise.compo
 import {MatRippleModule} from "@angular/material/core";
 import { ViewEnterpriseComponent } from './view-enterprise/view-enterprise.component';
 import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import {MatListModule} from "@angular/material/list";
     CustomDirectivesModule,
     MatSnackBarModule,
     MatRippleModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    MatGridListModule
   ]
 })
 export class EnterpriseModule { }

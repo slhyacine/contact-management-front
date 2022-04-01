@@ -21,6 +21,31 @@
       <mat-icon matSuffix>app_registration</mat-icon>
     </mat-form-field>
 
+    <mat-card *ngIf="contacts.length > 0" class="form-field-margin-button">
+      <mat-card-title color="primary">Contacts list</mat-card-title>
+
+      <table width="100%">
+        <tr>
+          <th>Id</th>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Lastname</th>
+          <th>Address</th>
+          <th>Remove</th>
+        </tr>
+        <tr *ngFor="let contact of contacts" align="center">
+          <td>{{contact.id}}</td>
+          <td>{{contact.type}}</td>
+          <td>{{contact.name}}</td>
+          <td>{{contact.lastname}}</td>
+          <td>{{contact.address}}</td>
+          <td>
+            <mat-icon color="warn" (click)="  deleteContactFromEnterprise(contact.id)">delete_forever</mat-icon>
+          </td>
+        </tr>
+      </table>
+    </mat-card>
+
     <button mat-raised-button [disabled]="!enterpriseFrom.valid" color="primary" type="button" (click)="updateEnterprise()" i18n>
       Save
     </button>

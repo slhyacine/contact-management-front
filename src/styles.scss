@@ -34,6 +34,7 @@ $dark-theme: mat.define-dark-theme((
   @include mat.paginator-theme($dark-theme);
   @include mat.button-theme($dark-theme);
   @include mat.menu-theme($dark-theme);
+  @include mat.card-theme($dark-theme);
 }
 
 html, body { height: 100%; }

@@ -32,8 +32,13 @@ export class EnterpriseService {
       .put(`${this.contactUrl}/${enterpriseId}`, enterpriseDto);
   }
 
-  getEnterprise(enterpriseId: string): Observable<EnterpriseCreateDto> {
+  getEnterprise(enterpriseId: string): Observable<any> {
     return this.httpClient
-      .get<EnterpriseCreateDto>(`${this.contactUrl}/${enterpriseId}`);
+      .get<any>(`${this.contactUrl}/${enterpriseId}`);
+  }
+
+  deleteContactFromEnterprise(enterpriseId: string, contactId: string) {
+    return this.httpClient
+      .delete(`${this.contactUrl}/${enterpriseId}/contacts/${contactId}/delete`);
   }
 }

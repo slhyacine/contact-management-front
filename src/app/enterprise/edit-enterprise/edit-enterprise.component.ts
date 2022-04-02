@@ -4,8 +4,9 @@ import {EnterpriseService} from "../enterprise.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {EnterpriseCreateDto} from "../dtos/EnterpriseCreateDto";
 import {ActivatedRoute} from "@angular/router";
-import {Contact} from "../../contact/models/Contact";
 import {ContactListDto} from "../../contact/dtos/ContactListDto";
+import {MatDialog} from "@angular/material/dialog";
+import {AddContactToEnterpriseComponent} from "../add-contact-to-enterprise/add-contact-to-enterprise.component";
 
 @Component({
   selector: 'app-edit-enterprise',
@@ -22,17 +23,26 @@ export class EditEnterpriseComponent implements OnInit {
   });
   contacts: ContactListDto[] = [];
 
-  constructor(private route: ActivatedRoute, public enterpriseService: EnterpriseService, private snack: MatSnackBar) {
+  constructor(
+    private route: ActivatedRoute,
+    public enterpriseService: EnterpriseService,
+    private snack: MatSnackBar,
+    public dialog: MatDialog
+  ) {
     this.enterpriseId = route.snapshot.paramMap.get('id') || '';
+  }
+
+  ngOnInit(): void {
+    this.loadEnterprise();
+  }
+
+  loadEnterprise() {
     this.enterpriseService.getEnterprise(this.enterpriseId).subscribe(
       (res) =>  {
         this.contacts = res.contacts;
         this.enterpriseFrom.setValue(new EnterpriseCreateDto(res));
       }
     );
-  }
-
-  ngOnInit(): void {
   }
 
   updateEnterprise() {
@@ -46,9 +56,22 @@ export class EditEnterpriseComponent implements OnInit {
   deleteContactFromEnterprise(contactId: string) {
     this.enterpriseService.deleteContactFromEnterprise(this.enterpriseId, contactId)
       .subscribe(
-        (res) => this.snack.open('Contact deleted successfully', 'ok',
-          { verticalPosition: "top", horizontalPosition: "center", duration: 500 })
-      )
+        (res) => {
+          this.snack.open('Contact deleted successfully', 'ok',
+            { verticalPosition: "top", horizontalPosition: "center", duration: 500 }
+          );
+          this.loadEnterprise();
+        }
+      );
   }
 
+  addContactToEnterprise() {
+    const dialogRef = this.dialog.open(AddContactToEnterpriseComponent, {
+      data: { enterpriseId: this.enterpriseId },
+    });
+
+    dialogRef.afterClosed().subscribe(enterprise => {
+      this.loadEnterprise();
+    });
+  }
 }

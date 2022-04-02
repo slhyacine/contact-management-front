@@ -23,7 +23,7 @@ export class AddEnterpriseComponent implements OnInit {
   }
 
   addEnterprise() {
-    this.enterpriseService.addEnterpriseEmployee(new EnterpriseCreateDto(this.enterpriseFrom.getRawValue()))
+    this.enterpriseService.addEnterprise(new EnterpriseCreateDto(this.enterpriseFrom.getRawValue()))
       .subscribe(res => {
         this.snack.open('New enterprise added successfully', 'ok',
           { verticalPosition: "top", horizontalPosition: "center", duration: 1000 })

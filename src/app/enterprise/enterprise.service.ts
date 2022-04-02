@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class EnterpriseService {
 
-  contactUrl = `${environment.backend}/enterprises`;
+  private contactUrl = `${environment.backend}/enterprises`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class EnterpriseService {
     return this.httpClient.get(`${this.contactUrl}/list?offset=${offset}&pageSize=${pageSize}`);
   }
 
-  addEnterpriseEmployee(enterpriseCreateDto: EnterpriseCreateDto) {
+  addEnterprise(enterpriseCreateDto: EnterpriseCreateDto) {
     return this.httpClient
       .post(`${this.contactUrl}/new`, enterpriseCreateDto);
   }
@@ -40,5 +40,10 @@ export class EnterpriseService {
   deleteContactFromEnterprise(enterpriseId: string, contactId: string) {
     return this.httpClient
       .delete(`${this.contactUrl}/${enterpriseId}/contacts/${contactId}/delete`);
+  }
+
+  addContactToEnterprise(enterpriseId: string, contactId: string) {
+    return this.httpClient
+      .post(`${this.contactUrl}/${enterpriseId}/addContact`, { contactId });
   }
 }

@@ -45,4 +45,9 @@ export class ContactService {
   updateContactFreelance(contactId: string, freelance: ContactFreelanceCreateDto) {
     return this.httpClient.put(`${this.contactUrl}/${contactId}/editFreelance`, freelance)
   }
+
+  autocompleteContactByNameAndLastname(search: string) {
+    return this.httpClient
+      .get(`${this.contactUrl}/search?term=${search}`);
+  }
 }

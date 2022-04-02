@@ -22,6 +22,9 @@ import { ViewEnterpriseComponent } from './view-enterprise/view-enterprise.compo
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { AddContactToEnterpriseComponent } from './add-contact-to-enterprise/add-contact-to-enterprise.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
@@ -29,28 +32,31 @@ import {MatGridListModule} from "@angular/material/grid-list";
     EnterpriseListComponent,
     AddEnterpriseComponent,
     EditEnterpriseComponent,
-    ViewEnterpriseComponent
+    ViewEnterpriseComponent,
+    AddContactToEnterpriseComponent
   ],
-  imports: [
-    CommonModule,
-    EnterpriseRoutingModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatInputModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    CustomDirectivesModule,
-    MatSnackBarModule,
-    MatRippleModule,
-    MatListModule,
-    MatCardModule,
-    MatGridListModule
-  ]
+    imports: [
+        CommonModule,
+        EnterpriseRoutingModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule,
+        MatIconModule,
+        MatInputModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        CustomDirectivesModule,
+        MatSnackBarModule,
+        MatRippleModule,
+        MatListModule,
+        MatCardModule,
+        MatGridListModule,
+        MatDialogModule,
+        MatAutocompleteModule
+    ]
 })
 export class EnterpriseModule { }

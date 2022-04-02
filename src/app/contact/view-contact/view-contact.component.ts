@@ -11,13 +11,14 @@ export class ViewContactComponent implements OnInit {
 
   contactId: string = "";
   contact: any;
-  constructor(private route: ActivatedRoute, private contactService: ContactService) {}
-
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private contactService: ContactService) {
     this.contactId = this.route.snapshot.paramMap.get('id') || '';
     this.contactService.getContact(this.contactId).subscribe(res => {
+      console.log(res);
       this.contact = res;
-  });
+    });
   }
+
+  ngOnInit(): void {}
 
 }

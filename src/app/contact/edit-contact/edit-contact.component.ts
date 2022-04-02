@@ -21,10 +21,12 @@ export class EditContactComponent implements OnInit {
     address: new FormControl('', Validators.required),
     tva: new FormControl('')
   });
+  enterprises: any[] = [];
   constructor(private route: ActivatedRoute, private contactService: ContactService, private snack: MatSnackBar) {
     this.contactId = route.snapshot.paramMap.get('id') || '';
     this.contactService.getContact(this.contactId).subscribe(
-      (res) => {
+      (res: any) => {
+        this.enterprises = res.enterprises;
         this.contactFrom.setValue(new ContactFreelanceCreateDto(res));
     });
   }

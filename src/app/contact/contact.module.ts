@@ -21,6 +21,7 @@ import { EditContactComponent } from './edit-contact/edit-contact.component';
 import {MatRippleModule} from "@angular/material/core";
 import { ViewContactComponent } from './view-contact/view-contact.component';
 import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -30,24 +31,25 @@ import {MatListModule} from "@angular/material/list";
     EditContactComponent,
     ViewContactComponent
   ],
-  imports: [
-    CommonModule,
-    ContactRoutingModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatSnackBarModule,
-    CustomDirectivesModule,
-    MatRippleModule,
-    MatListModule
-  ]
+    imports: [
+        CommonModule,
+        ContactRoutingModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatProgressSpinnerModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        CustomDirectivesModule,
+        MatRippleModule,
+        MatListModule,
+        MatCardModule
+    ]
 })
 export class ContactModule { }

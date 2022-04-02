@@ -37,6 +37,25 @@
       <mat-icon matSuffix>app_registration</mat-icon>
     </mat-form-field>
 
+    <mat-card *ngIf="enterprises.length > 0" class="form-field-margin-button">
+      <mat-card-title color="primary">
+        <span>Contacts list</span>
+      </mat-card-title>
+
+      <table width="100%">
+        <tr>
+          <th>Id</th>
+          <th>Type</th>
+          <th>Name</th>
+        </tr>
+        <tr *ngFor="let enterprise of enterprises" align="center">
+          <td>{{enterprise.id}}</td>
+          <td>{{enterprise.name}}</td>
+          <td>{{enterprise.address}}</td>
+        </tr>
+      </table>
+    </mat-card>
+
     <button mat-raised-button [disabled]="!contactFrom.valid" color="primary" type="button" (click)="updateContact()" i18n>
       Save
     </button>

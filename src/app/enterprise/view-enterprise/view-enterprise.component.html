@@ -7,4 +7,27 @@
     <mat-list-item><strong i18n>Address :</strong>{{enterprise.address}}</mat-list-item>
     <mat-list-item><strong>tva : </strong>{{enterprise.tva}}</mat-list-item>
   </mat-list>
+
+  <mat-card *ngIf="enterprise.contacts.length > 0" class="form-field-margin-button">
+    <mat-card-title color="primary">
+      <span>Contacts list</span>
+    </mat-card-title>
+
+    <table width="100%">
+      <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Address</th>
+      </tr>
+      <tr *ngFor="let contact of enterprise.contacts" align="center">
+        <td>{{contact.id}}</td>
+        <td>{{contact.type}}</td>
+        <td>{{contact.name}}</td>
+        <td>{{contact.lastname}}</td>
+        <td>{{contact.address}}</td>
+      </tr>
+    </table>
+  </mat-card>
 </div>
